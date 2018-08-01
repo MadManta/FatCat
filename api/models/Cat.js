@@ -3,18 +3,27 @@ const Schema = mongoose.Schema;
 
 const CatSchema = new Schema({
 
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
     name: {
-        Type: String
+        type: String
     },
     breed: {
-        Type: String
+        type: String
     },
     age: {
-        Type: String,
-        required: false
+        type: Number,
     },
     startingWeight: {
-        Type: Number
+        type: Number
+    },
+    diet: {
+        type: [String]
+    },
+    description: {
+        type: String
     }
 
 });

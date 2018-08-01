@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const mocha = require('mocha');
 const passport = require('passport');
 const userRoutes = require('./api/routes/users');
+const catRoutes = require('./api/routes/cat');
 const app = express();
 const PORT = process.env.PORT || 5500;
 
@@ -21,7 +22,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 app.use('/api/users/', userRoutes);
-// app.use('/api/profile', profileRoutes);
+app.use('/api/cats', catRoutes)
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '/client/public/index.html'));
